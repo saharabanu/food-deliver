@@ -9,8 +9,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  /* background-color: #EEEFF0; */
+
 }
-/* body{
-  background-color: red;
-} */
+.dropdown-menu1 {
+  display: none;
+  position: absolute;
+ 
+  top: 42px;
+  left: 0;
+  width: 160px;
+}
+
+.flex1:hover .dropdown-menu1 {
+  display: block;
+}
+
+

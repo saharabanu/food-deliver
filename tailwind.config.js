@@ -11,9 +11,12 @@ module.exports = {
         "orangePrimary":"#FC6011",
         "yellowPrimary":"#F99F1C",
         "orangeSecondary ":"#FD6011",
-        "globalBody":"#EEEFF0"
+        "globalBody":"#EEEFF0",
+        "grayPrimary":"#FEFEFE",
       },
     },
   },
   plugins: [],
 }
+
+//#A9B0B8
