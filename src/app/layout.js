@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google'
 import './globals.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import Providers from '@/lib/Providers';
+import ToastProvider from '@/lib/ToastProvider';
 
 
 
@@ -11,8 +13,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <Providers>
     <html lang="en">
-      <body className='bg-globalBody'>{children}</body>
+      <body className='bg-globalBody'>
+        <ToastProvider>
+        {children}
+        </ToastProvider>
+        </body>
     </html>
+    </Providers>
   )
 }
