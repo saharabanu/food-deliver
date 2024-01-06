@@ -22,6 +22,9 @@ const Navbar = () => {
       <h6 className="pl-5"><MdKeyboardArrowDown className="text-2xl text-orangePrimary cursor-pointer " /></h6>
       <ul className="dropdown-menu1  duration-300 delay-150 transition-all ease-in-out py-4 rounded bg-white ">
         
+       {/* <li className="block text-decoration-none text-gray-500 hover:bg-gray-200 hover:text-orangePrimary py-1  rounded">
+       <Link href="/" className="">Home</Link>
+       </li> */}
         <Link href="/" className="block text-decoration-none text-gray-500 hover:bg-gray-200 hover:text-orangePrimary py-1  rounded">Home</Link>
         <Link href="/" className="block text-decoration-none text-gray-500 hover:bg-gray-200 hover:text-orangePrimary py-1  rounded">Details</Link>
         <Link href="/" className="block text-decoration-none text-gray-500  hover:bg-gray-200 hover:text-orangePrimary py-1  rounded">Category</Link>
