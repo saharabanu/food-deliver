@@ -5,14 +5,27 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 import { useState } from "react";
 import AddProductForm from "../form/AddProductForm";
-import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+
 
 const PopularProducts = () => {
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const handlePrevClick = () => {
+    // console.log("click");
+    if (swiperInstance) {
+      swiperInstance.slidePrev();
+    }
+  };
+
+  const handleNextClick = () => {
+    // console.log("click1");
+    if (swiperInstance) {
+      swiperInstance.slideNext();
+    }
+  };
   const {
     data: products,
     isLoading,
@@ -22,6 +35,8 @@ const PopularProducts = () => {
   });
   // console.log(products);
   const allProducts = products?.products?.Items;
+  const filteredItems = allProducts?.filter(item => item.IsPopular === true);
+  // console.log(filteredItems)
 
   const breakpoints = {
     480: {
@@ -63,7 +78,7 @@ const PopularProducts = () => {
     );
   }
 
-  if (!isLoading && !isError && allProducts?.length === 0) {
+  if (!isLoading && !isError && filteredItems?.length === 0) {
     content = (
       <>
         {" "}
@@ -75,8 +90,8 @@ const PopularProducts = () => {
     );
   }
 
-  if (!isLoading && !isError && allProducts?.length > 0) {
-    content = allProducts?.map((item) => (
+  if (!isLoading && !isError && filteredItems?.length > 0) {
+    content = filteredItems?.map((item) => (
       <SwiperSlide key={item?._id}>
         {" "}
         <div key={item?.Id} className="mb-10 z-0">
@@ -116,27 +131,24 @@ const PopularProducts = () => {
             Add More
           </button>
           <div className="pt-2 pl-2">
-            <button>
+            <button onClick={handlePrevClick}>
               <MdKeyboardArrowLeft />
             </button>
-            <button>
+            <button onClick={handleNextClick}>
               <MdKeyboardArrowRight />
             </button>
-            
           </div>
         </div>
       </div>
 
       <div className="">
         <Swiper
-          navigation={true}
-          modules={[Pagination, Navigation]}
           breakpoints={breakpoints}
+          onSwiper={(swiper) => setSwiperInstance(swiper)}
           className="mySwiper"
         >
           {content}
         </Swiper>
-        
       </div>
 
       {/* AddProductForm modal */}

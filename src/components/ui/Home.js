@@ -8,11 +8,11 @@ const Home = () => {
     return (
         <div className="container">
             <Banner/>
-            {/* <AddProductForm/> */}
+           
             <PopularProducts/>
-            <PopularProducts/>
-            {/* <RecommendedProducts/>
-             */}
+         
+            <RecommendedProducts/>
+            
         </div>
     );
 };
