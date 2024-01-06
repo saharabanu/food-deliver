@@ -8,8 +8,9 @@ const Home = () => {
         <div className="container">
             <Banner/>
             <PopularProducts/>
-            <RecommendedProducts/>
-            
+            <PopularProducts/>
+            {/* <RecommendedProducts/>
+             */}
         </div>
     );
 };

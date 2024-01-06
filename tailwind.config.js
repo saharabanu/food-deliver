@@ -15,6 +15,7 @@ module.exports = {
         "globalBody":"#EEEFF0",
         "grayPrimary":"#FEFEFE",
         "gray1":"#9CA4AD",
+        "gray2":"#FEDDBA",
       },
     },
   },
