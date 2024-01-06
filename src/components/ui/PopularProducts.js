@@ -6,14 +6,17 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 
 const PopularProducts = () => {
-  const {data:products, isLoading, isError} = useGetAllProductsQuery();
+  const {data:products, isLoading, isError} = useGetAllProductsQuery({
+    IsRecommended:true
+  });
+  console.log(products)
   const allProducts = products?.products?.Items;
-  // console.log(products?.products?.Items)
+  console.log(products?.products?.Items)
 
   
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-between align-items-center py-3">
         <h5>Popular</h5>
         <div className="d-flex align-items-center">
           <button className="text-orangePrimary">Add More</button>
@@ -29,10 +32,11 @@ const PopularProducts = () => {
       </div>
  
 
- <div>
-  {allProducts?.map((item)=><div key={item?.Id}>
-    <Image/>
-     <h5>{item?.Name}</h5>
+ <div className="grid lg:grid-cols-6 gap-4">
+  
+  {allProducts?.map((item)=><div key={item?.Id} className="mb-10">
+    <Image src={item?.ImageUrl} alt="product img" width={200} height={200} className="w-full h-full rounded-xl product-img"/>
+     <h5 className="text-center text-gray1 pt-4 ">{item?.Name}</h5>
   </div>)}
     
  </div>

@@ -14,6 +14,7 @@ module.exports = {
         "orangeSecondary ":"#FD6011",
         "globalBody":"#EEEFF0",
         "grayPrimary":"#FEFEFE",
+        "gray1":"#9CA4AD",
       },
     },
   },
