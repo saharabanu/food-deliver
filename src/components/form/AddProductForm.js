@@ -22,7 +22,7 @@ const AddProductForm = ({ isOpen, onClose }) => {
     return (
         
       
-        <dialog className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  flex items-center justify-center ">
+        <dialog className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  flex items-center justify-center z-10">
           <div className="bg-globalBody p-8 rounded-lg shadow-md w-[440px]">
           <div className="flex justify-between items-center">
           <h4 className="py-2 text-orangePrimary">Add Product</h4>
