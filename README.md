@@ -5,7 +5,8 @@
 
 
 # Design With Nextjs and Tailwind and bootstrap mixed
- I have used in this project Nextjs and Tailwind. I have designed this project and mapped all data using redux rqt query.
+ I have used in this project Nextjs and Tailwind. I have also used redux ,react hook form and react-hot-toast for notify and swiper carousel.
+ I have designed this project and mapped all data using redux rqt query. I have filtered data  show differently using IsPopular and IsRecommended.I have also added searching functionality and some hover effect. I have attached a add more button. Any one can send data using this form but data will show only in console and not sent in database.
 
 
 

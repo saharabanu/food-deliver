@@ -9,11 +9,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector } from "react-redux";
 
 
 const PopularProducts = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { search } = useSelector((state) => state.filter);
   const handlePrevClick = () => {
     // console.log("click");
     if (swiperInstance) {
@@ -27,19 +29,7 @@ const PopularProducts = () => {
       swiperInstance.slideNext();
     }
   };
-  // const handlePrevClick = () => {
-  //   if (swiperInstance) {
-  //     swiperInstance.slidePrev();
-  //     setCurrentSlide((prev) => prev - 1);
-  //   }
-  // };
-
-  // const handleNextClick = () => {
-  //   if (swiperInstance) {
-  //     swiperInstance.slideNext();
-  //     setCurrentSlide((prev) => prev + 1);
-  //   }
-  // };
+  
 
   const {
     data: products,
@@ -50,7 +40,10 @@ const PopularProducts = () => {
   });
   // console.log(products);
   const allProducts = products?.products?.Items;
-  const filteredItems = allProducts?.filter(item => item.IsPopular === true);
+  const filteredItem = allProducts?.filter(item => item.IsPopular === true);
+  const filteredItems = filteredItem?.filter((item) =>
+    item.Name.toLowerCase().includes(search.toLowerCase())
+  );
   // console.log(filteredItems)
 
   const breakpoints = {

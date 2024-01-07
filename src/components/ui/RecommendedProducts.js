@@ -11,10 +11,12 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useGetAllProductsQuery } from "@/redux/api/productApi";
 import AddProductForm from "../form/AddProductForm";
+import { useSelector } from "react-redux";
 
 
 const RecommendedProducts = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
+  const { search } = useSelector((state) => state.filter);
   const handlePrevClick = () => {
     // console.log("click");
     if (swiperInstance) {
@@ -35,7 +37,10 @@ const RecommendedProducts = () => {
   } = useGetAllProductsQuery();
   // console.log(products);
   const allProducts = products?.products?.Items;
-  const filteredItems = allProducts?.filter(item => item.IsRecommended === true);
+  const filteredItem = allProducts?.filter(item => item.IsRecommended === true);
+  const filteredItems = filteredItem?.filter((item) =>
+    item.Name.toLowerCase().includes(search.toLowerCase())
+  );
 //   console.log(filteredItems)
 
   const breakpoints = {
