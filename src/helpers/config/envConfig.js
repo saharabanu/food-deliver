@@ -1,4 +1,4 @@
-const url = process.env.URL || 'http://www.api.technicaltest.quadtheoryltd.com/api'
+const url = process.env.NEXT_PUBLIC_URL || 'http://www.api.technicaltest.quadtheoryltd.com/api'
 
 export const getBaseUrl = () => {
   
