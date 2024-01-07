@@ -4,8 +4,11 @@ import PopularProducts from "./PopularProducts";
 import RecommendedProducts from "./RecommendedProducts";
 
 
+
 const Home = () => {
     return (
+        <>
+        
         <div className="container">
             <Banner/>
            
@@ -14,6 +17,7 @@ const Home = () => {
             <RecommendedProducts/>
             
         </div>
+        </>
     );
 };
 

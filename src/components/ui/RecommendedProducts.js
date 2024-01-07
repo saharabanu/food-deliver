@@ -41,19 +41,19 @@ const RecommendedProducts = () => {
   const breakpoints = {
     480: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
     576: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
     786: {
       slidesPerView: 4,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
     1024: {
       slidesPerView: 5,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
   };
 
@@ -125,7 +125,7 @@ const RecommendedProducts = () => {
         <h5>Recommended</h5>
         <div className="d-flex align-items-center">
           <button
-            className="text-orangePrimary cursor-pointer"
+            className="text-orangePrimary cursor-pointer lg:block hidden"
             onClick={openAddProductModal}
           >
             Add More

@@ -12,6 +12,7 @@ module.exports = {
         "yellowPrimary":"#F99F1C",
         "yellowSecondary":"#F1BC70",
         "orangeSecondary ":"#FD6011",
+        "orange1":"#FD9460",
         "globalBody":"#EEEFF0",
         "grayPrimary":"#FEFEFE",
         "gray1":"#9CA4AD",

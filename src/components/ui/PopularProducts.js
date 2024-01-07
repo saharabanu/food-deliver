@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const PopularProducts = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const handlePrevClick = () => {
     // console.log("click");
     if (swiperInstance) {
@@ -26,6 +27,20 @@ const PopularProducts = () => {
       swiperInstance.slideNext();
     }
   };
+  // const handlePrevClick = () => {
+  //   if (swiperInstance) {
+  //     swiperInstance.slidePrev();
+  //     setCurrentSlide((prev) => prev - 1);
+  //   }
+  // };
+
+  // const handleNextClick = () => {
+  //   if (swiperInstance) {
+  //     swiperInstance.slideNext();
+  //     setCurrentSlide((prev) => prev + 1);
+  //   }
+  // };
+
   const {
     data: products,
     isLoading,
@@ -41,19 +56,19 @@ const PopularProducts = () => {
   const breakpoints = {
     480: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
     576: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
     786: {
       slidesPerView: 4,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
     1024: {
       slidesPerView: 5,
-      spaceBetween: 30,
+      spaceBetween: 15,
     },
   };
 
@@ -125,16 +140,26 @@ const PopularProducts = () => {
         <h5>Popular</h5>
         <div className="d-flex align-items-center">
           <button
-            className="text-orangePrimary cursor-pointer"
+            className="text-orangePrimary cursor-pointer lg:block hidden "
             onClick={openAddProductModal}
+            
           >
             Add More
           </button>
           <div className="pt-2 pl-2">
-            <button onClick={handlePrevClick}>
+            <button onClick={handlePrevClick} className={`${
+              swiperInstance && swiperInstance.isBeginning
+                ? 'text-gray-500'
+                : 'text-orangePrimary'
+            }`}
+>
               <MdKeyboardArrowLeft />
             </button>
-            <button onClick={handleNextClick}>
+            <button onClick={handleNextClick} className={`${
+              swiperInstance && swiperInstance.isEnd
+                ? 'text-gray-500'
+                : 'text-orangePrimary'
+            }`}>
               <MdKeyboardArrowRight />
             </button>
           </div>
