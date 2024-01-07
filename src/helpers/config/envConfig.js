@@ -1,3 +1,9 @@
+const url = process.env.URL || 'http://www.api.technicaltest.quadtheoryltd.com/api'
+
 export const getBaseUrl = () => {
-  return 'http://www.api.technicaltest.quadtheoryltd.com/api';
+  
+  return url ;
 };
+
+// http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10
+// http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10
