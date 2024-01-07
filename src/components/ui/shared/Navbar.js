@@ -3,8 +3,31 @@ import { LuUser2 } from "react-icons/lu";
 import { BiSearch } from "react-icons/bi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { searched } from "@/redux/features/filterSlice";
 
 const Navbar = () => {
+
+
+  const dispatch = useDispatch();
+  const { search } = useSelector((state) => state.filter);
+  const [input, setInput] = useState(search);
+
+  useEffect(() => {
+    if (search === "") {
+      setInput("");
+    }
+  }, [search]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(searched(input));
+
+    
+    
+  };
+
   return (
     <div className="container">
       <div className="grid grid-cols-3 py-3">
@@ -14,8 +37,11 @@ const Navbar = () => {
         <div className="">
           <div className="d-flex ">
             <div className="">
-              <input className="bg-grayPrimary relative pl-8 rounded py-2 w-[400px] outline-none" placeholder="search audioBook  " />
+              <form onSubmit={handleSubmit}>
+              <input name="search" type="search" className="bg-grayPrimary relative pl-8 rounded py-2 w-[400px] outline-none" placeholder="search audioBook" value={input}
+        onChange={(e) => setInput(e.target.value)}/>
               <BiSearch  className=" absolute top-7 ml-2 text-orangePrimary"/>
+              </form>
             </div>
             <div className="  flex1 flex bg-grayPrimary ml-2 items-center justify-between rounded px-3 pt-2 relative ">
       <h6 className="pr-4 cursor-pointer">MENU</h6>
